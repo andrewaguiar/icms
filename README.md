@@ -34,7 +34,7 @@ puts state_rates.get_percentual(:AC, :SP) # 12.0
 puts state_rates.get_percentual(:SP) # 18.0
 
 # To obtain all informations about the source and destination state use `get`
-result = state_rates.get(:AC, :SP) # <struct Icms::StateRate::Result destination_state=18.0, source_state=17.0, between=12.0>
+result = state_rates.get(:AC, :SP) # <struct Icms::StateRates::Result destination_state=18.0, source_state=17.0, between=12.0>
 puts result.source_state # AC: 17.0
 puts result.destination_state # AC: 18.0
 puts result.between # AC -> SP: 12.0
