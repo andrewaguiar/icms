@@ -24,6 +24,24 @@ Or install it yourself as:
 
 First of all create a new instance of Icms::States passing the taxes rates and the separator. example:
 ```ruby
+state_rates = Icms::StateRates.new
+
+# Use get_percentual to get the value between two states
+puts state_rates.get_percentual(:SP, :AC) # 7.0
+puts state_rates.get_percentual(:AC, :SP) # 12.0
+
+# Passing only source state will return that state rate
+puts state_rates.get_percentual(:SP) # 18.0
+
+# To obtain all informations about the source and destination state use `get`
+result = state_rates.get(:AC, :SP) # <struct Icms::StateRate::Result destination_state=18.0, source_state=17.0, between=12.0>
+puts result.source_state # AC: 17.0
+puts result.destination_state # AC: 18.0
+puts result.between # AC -> SP: 12.0
+
+
+
+# You can use a custom rates table instead of using the default table in Icms module
 # Rates table
 TABLE = <<-TABLE
 AC,AL,AM,AP,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RN,RS,RJ,RO,RR,SC,SP,SE,TO
@@ -60,19 +78,6 @@ TABLE
 separator = ','
 
 state_rates = Icms::StateRates.new(table, separator)
-
-# Use get_percentual to get the value between two states
-puts state_rates.get_percentual(:SP, :AC) # 7.0
-puts state_rates.get_percentual(:AC, :SP) # 12.0
-
-# Passing only source state will return that state rate
-puts state_rates.get_percentual(:SP) # 18.0
-
-# To obtain all informations about the source and destination state use `get`
-result = state_rates.get(:AC, :SP) # <struct Icms::StateRate::Result destination_state=18.0, source_state=17.0, between=12.0>
-puts result.source_state # AC: 17.0
-puts result.destination_state # AC: 18.0
-puts result.between # AC -> SP: 12.0
 ```
 
 ## Development
@@ -89,4 +94,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
