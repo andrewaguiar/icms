@@ -1,8 +1,6 @@
 # Icms
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/icms`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Icms implements the new icms tax table between states [http://guiatributario.net/2015/04/20/nova-sistematica-de-recolhimento-do-icms-interestadual-a-partir-de-16072015/](http://guiatributario.net/2015/04/20/nova-sistematica-de-recolhimento-do-icms-interestadual-a-partir-de-16072015/).
 
 ## Installation
 
